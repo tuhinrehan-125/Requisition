@@ -3,222 +3,222 @@
 @php
 $auth=auth()->user()->role->role;
 @endphp
-<div class="row" style="width: 100%">
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            @if ( $auth=='dept-user')
-            <a href="{{url('/my-stock')}}">
-                @elseif($auth=='super-admin'|| $auth=='stock-officer')
-                <a href="{{url('/stock')}}">
-                    @else
-                    @endif
+<div class="row flex-container" style="width: 100%">
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                @if ( $auth=='dept-user')
+                <a href="{{url('/my-stock')}}">
+                    @elseif($auth=='super-admin'|| $auth=='stock-officer')
+                    <a href="{{url('/stock')}}">
+                        @else
+                        @endif
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-1">
+                                <i class="fa fa-database"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    @if($auth=='dept-user' )
+                                    <div class="stat-text"><span class="count positive">{{$number_of_stocks->sum('qty')}}</span></div>
+                                    <div class="stat-heading">{{__('messages.my_stock') }}</div>
+                                    @else
+                                    <div class="stat-text"><span class="count positive">{{$number_of_stocks->sum('in_stock')}}</span></div>
+                                    <div class="stat-heading">{{__('messages.stock') }}</div>
+                                    @endif
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </a>
+            </div>
+        </div>
+    </div>
+    @if ($auth=='super-admin' || $auth=='stock-officer')
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/purchase')}}">
                     <div class="stat-widget-five">
-                        <div class="stat-icon dib flat-color-1">
-                            <i class="fa fa-database"></i>
+                        <div class="stat-icon dib flat-color-2">
+                            <i class="fa fa-cart-arrow-down"></i>
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                @if($auth=='dept-user' )
-                                <div class="stat-text"><span class="count positive">{{$number_of_stocks->sum('qty')}}</span></div>
-                                <div class="stat-heading">{{__('messages.my_stock') }}</div>
-                                @else
-                                <div class="stat-text"><span class="count positive">{{$number_of_stocks->sum('in_stock')}}</span></div>
-                                <div class="stat-heading">{{__('messages.stock') }}</div>
-                                @endif
-                               
+                                <div class="stat-text"><span class="count negative">{{$number_of_purchase->sum('qty')}}</span></div>
+                                <div class="stat-heading">{{__('messages.total_purchase') }}</div>
                             </div>
                         </div>
                     </div>
                 </a>
-            </a>
+            </div>
         </div>
     </div>
-</div>
-@if ($auth=='super-admin' || $auth=='stock-officer')
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/purchase')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-2">
-                        <i class="fa fa-cart-arrow-down"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text"><span class="count negative">{{$number_of_purchase->sum('qty')}}</span></div>
-                            <div class="stat-heading">{{__('messages.total_purchase') }}</div>
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/purchase')}}">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-6">
+                            <i class="fa fa-sign-out-alt"></i>
                         </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/purchase')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-6">
-                        <i class="fa fa-sign-out-alt"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text"><span class="count negative">{{$number_of_deliver_item}}</span></div>
-                            <div class="stat-heading">{{__('messages.total_delivered') }}</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-@endif
-@if ($auth=='dept-user'  ||  $auth=='super-admin' || $auth=='stock-officer')
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/category')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-4" style="color: #d6bd0c">
-                        <i class="fa fa-list"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text">
-                                {{-- <span class="count pending">{{\App\Category::where('status',true)->get()->count()}}--}}
-                                <span class="count pending">{{$number_of_categories}}
-                                </span>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count negative">{{$number_of_deliver_item}}</span></div>
+                                <div class="stat-heading">{{__('messages.total_delivered') }}</div>
                             </div>
-                            <div class="stat-heading">{{__('messages.category') }}</div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-@endif
-@if ($auth!=='dept-user')
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            @if ($auth=='super-admin' || $auth=='stock-officer')
-            <a href="{{url('/product')}}">
-            @else
-            @endif
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-4" style="color: #1f961b">
-                        <i class="fa fa-cubes"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text">
-                                <span class="count pending">{{$number_of_products}}
-                                </span>
+    @endif
+    @if ($auth=='dept-user' || $auth=='super-admin' || $auth=='stock-officer')
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/category')}}">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4" style="color: #d6bd0c">
+                            <i class="fa fa-list"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text">
+                                    {{-- <span class="count pending">{{\App\Category::where('status',true)->get()->count()}}--}}
+                                    <span class="count pending">{{$number_of_categories}}
+                                    </span>
+                                </div>
+                                <div class="stat-heading">{{__('messages.category') }}</div>
                             </div>
-                            <div class="stat-heading">{{__('messages.product') }}</div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-@endif
-@if ( $auth=='super-admin' || $auth=='stock-officer')
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/vendor')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon" style="color: #d64c0c">
-                        <i class="fa fa-address-book"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text">
-                                <span class="count pending">{{\App\Vendor::count()}}
+    @endif
+    @if ($auth!=='dept-user')
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                @if ($auth=='super-admin' || $auth=='stock-officer')
+                <a href="{{url('/product')}}">
+                    @else
+                    @endif
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4" style="color: #1f961b">
+                            <i class="fa fa-cubes"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text">
+                                    <span class="count pending">{{$number_of_products}}
+                                    </span>
+                                </div>
+                                <div class="stat-heading">{{__('messages.product') }}</div>
                             </div>
-                            <div class="stat-heading">{{__('messages.vendor') }}</div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-@endif
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/approved/requisition')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-3" style="color: #0fc75b">
-                        <i class="fa fa-check-square"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text">
-                                <span class="count pending text-center">{{$approved_requisition->count()}}
-                                </span>
+    @endif
+    @if ( $auth=='super-admin' || $auth=='stock-officer')
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/vendor')}}">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon" style="color: #d64c0c">
+                            <i class="fa fa-address-book"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text">
+                                    <span class="count pending">{{\App\Vendor::count()}}
+                                </div>
+                                <div class="stat-heading">{{__('messages.vendor') }}</div>
                             </div>
-                            {{--<div class="stat-heading">Vendor</div>--}}
-                            <div class="stat-heading" style="font-size: 17px">{{__('messages.approved_requisition') }}</div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+    @endif
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/approved/requisition')}}">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-3" style="color: #0fc75b">
+                            <i class="fa fa-check-square"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text">
+                                    <span class="count pending text-center">{{$approved_requisition->count()}}
+                                    </span>
+                                </div>
+                                {{--<div class="stat-heading">Vendor</div>--}}
+                                <div class="stat-heading" style="font-size: 17px">{{__('messages.approved_requisition') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/pending/requisition')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-4" style="color: #6e66bb">
-                        <i class="fa fa-stopwatch"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text">
-                                <span class="count pending">{{ $pending_requistion->count() }}
-                                </span>
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/pending/requisition')}}">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4" style="color: #6e66bb">
+                            <i class="fa fa-stopwatch"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text">
+                                    <span class="count pending">{{ $pending_requistion->count() }}
+                                    </span>
+                                </div>
+                                <div class="stat-heading">{{__('messages.pending_requisition') }}</div>
                             </div>
-                            <div class="stat-heading">{{__('messages.pending_requisition') }}</div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="col-lg-3 col-md-6">
-    <div class="card counter">
-        <div class="card-body">
-            <a href="{{url('/reject/requisition')}}">
-                <div class="stat-widget-five">
-                    <div class="stat-icon dib flat-color-4" style="color: #ec0b0b">
-                        <i class="fa fa-times-circle"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="text-left dib">
-                            <div class="stat-text"><span class="count">
-                                    {{$rejected_requisition}}
-                                </span></div>
-                            <div class="stat-heading">{{__('messages.rejected_requisition') }}</div>
+    <div class="col-lg-3 col-md-6 flex-box">
+        <div class="card counter">
+            <div class="card-body">
+                <a href="{{url('/reject/requisition')}}">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4" style="color: #ec0b0b">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">
+                                        {{$rejected_requisition}}
+                                    </span></div>
+                                <div class="stat-heading">{{__('messages.rejected_requisition') }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="row dashboard">
@@ -252,7 +252,7 @@ $auth=auth()->user()->role->role;
                 @empty
                 <tr>
                     <td colspan="4" class="text-center">No data available</td>
-                  </tr>
+                </tr>
                 @endforelse
 
                 @endif
@@ -280,13 +280,13 @@ $auth=auth()->user()->role->role;
                 @empty
                 <tr>
                     <td colspan="4" class="text-center">No data available</td>
-                  </tr>
+                </tr>
                 @endforelse
             </tbody>
         </table>
     </div>
     @endif
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 tbl-3">
         <p class="text-center">{{__('messages.latest_approved_requisition')}}</p>
         <table class="table table-striped">
             <thead>
@@ -308,13 +308,13 @@ $auth=auth()->user()->role->role;
                 @empty
                 <tr>
                     <td colspan="4" class="text-center">No data available</td>
-                  </tr>
+                </tr>
                 @endforelse
 
             </tbody>
         </table>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 tbl-4">
         <p class="text-center">{{__('messages.latest_pending_requisition')}}</p>
         <table class="table table-striped">
             <thead>
@@ -336,7 +336,7 @@ $auth=auth()->user()->role->role;
                 @empty
                 <tr>
                     <td colspan="4" class="text-center">No data available</td>
-                  </tr>
+                </tr>
                 @endforelse
 
             </tbody>

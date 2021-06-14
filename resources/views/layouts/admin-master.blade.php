@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{url('/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('/css/style.css')}}">
     <link rel="stylesheet" href="{{url('/css/vesselFormstyle.css')}}">
+    <link rel="stylesheet" href="{{url('/css/home.css')}}">
 </head>
 
 <body>

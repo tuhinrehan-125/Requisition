@@ -1,0 +1,93 @@
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+@media only screen 
+  and (min-device-width: 1025px) 
+  and (max-device-width: 1200px){
+    .stat-widget-five .stat-icon{
+        margin-left: -25px;
+    }
+    .stat-widget-five .stat-content{
+        margin-left:40px
+    }
+
+}
+@media only screen 
+  and (min-device-width: 110px) 
+  and (max-device-width: 1024px) {
+    .right-panel{
+        margin-left:100px;
+    }
+    .stat-widget-five .stat-icon{
+        margin-left: -5px;
+    }
+    .stat-widget-five .stat-content{
+        margin-left:65px
+    }
+}
+
+@media only screen 
+  and (min-device-width: 992px) 
+  and (max-device-width: 1009px) {
+    .stat-widget-five .stat-icon{
+        margin-left: -5px;
+    }
+    .stat-widget-five .stat-content{
+        margin-left:65px
+    }
+}
+@media only screen 
+  and (min-device-width: 769px) 
+  and (max-device-width: 991px) {
+    .tbl-3{
+        margin-left: -10px;
+    }
+    .tbl-4{
+        padding-left:25px;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 481px) 
+  and (max-device-width: 768px) {
+    .content{
+        width: 768px;
+    }
+    footer.site-footer{
+        width: 768px;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .flex-box {
+        width: 50%;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) {
+      
+    .content{
+        width: 480px;
+    }
+    footer.site-footer{
+        width: 480px;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .flex-box {
+        width: 100%;
+    }
+    .card{
+        width: 100%;
+        margin-left:0;
+    }
+}
