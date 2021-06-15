@@ -65,6 +65,9 @@
     .flex-box {
         width: 50%;
     }
+    .right-panel .navbar-header{
+        width: 768px;
+    }
 }
 
 @media only screen 
@@ -81,7 +84,6 @@
     .flex-container {
         display: flex;
         flex-wrap: wrap;
-        
     }
     .flex-box {
         width: 100%;
@@ -90,4 +92,31 @@
         width: 100%;
         margin-left:0;
     }
+
+    .right-panel .navbar-header {
+        width: 480px;
+    }
+}
+.sidebar {
+  display: none;
+}
+
+@media only screen 
+  and (min-device-width: 769px)
+  and (max-device-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto
+  }
+  #left-panel .navbar .navbar-nav > li.active{
+      width: 130px;
+  }
+  .navbar .navbar-nav{
+    margin-top: 280px;
+  }
 }

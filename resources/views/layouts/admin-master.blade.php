@@ -34,7 +34,7 @@
 <body>
     <aside id="left-panel" class="left-panel" style="background: #f8f9e7;">
         <nav class="navbar navbar-expand-sm navbar-default w100" style="background: #f8f9e7;">
-            <div id="main-menu" class="main-menu w100 collapse navbar-collapse">
+            <div id="main-menu" class="main-menu w100 collapse navbar-collapse sidebar">
                 <ul class="nav navbar-nav w100">
                     @if(auth()->user()->role()->exists())
                     <li class="{{Route::current()->uri() == 'home' ? 'active' : ''}}">
@@ -197,7 +197,6 @@
                         <i class="menu-icon fas fa-trash-alt"></i>
                         <span class="left-menu-title"> Trash</span></a> --}}
                         @endif
-
 
                     </div>
                     <div class="d-flex justify content-center header_middle_area">
