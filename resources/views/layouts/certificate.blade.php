@@ -26,7 +26,7 @@
 		<!-- card-hader -->
 		<!-- card-body -->
 		<div class="card-body">
-			<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+			<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 				<thead>
 					<th>#</th>
 					<th>Name</th>

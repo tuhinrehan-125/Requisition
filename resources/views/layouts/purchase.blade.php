@@ -28,7 +28,7 @@
         <div class="card-body">
             {{-- <iframe src="http://www.onlineicttutor.com/wp-content/uploads/2016/04/pdf-at-iframe.pdf" width="100%" height="300"></iframe>--}}
 
-            <table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+            <table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
                 <thead>
                     <tr>
                         <th>{{__('messages.sl_no')}}</th>

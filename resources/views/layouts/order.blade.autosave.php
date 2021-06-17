@@ -1,15 +1,15 @@
 @extends('layouts.admin-master')
-@section('main-content') 
+@section('main-content')
 <div class="col-lg-6 col-xl-12">
 	<div class="card">
 		<div class="card-header pv-card-hader">
 			@if(auth()->user()->role=='master'||auth()->user()->role=='chief-officer'||auth()->user()->role=='chief-engineer'||auth()->user()->role=='operator')
-						<strong class="pptitle">
+			<strong class="pptitle">
 				Requisition List of <span style="color:red;display: inline-block;padding-left: 5px;"> {{auth()->user()->role->vessel->name}} </span>
 			</strong>
 			@else
 			<strong class="pptitle">
-				Requisition List 
+				Requisition List
 			</strong>
 			@endif
 			@if(auth()->user()->role->vessel_id==null)
@@ -17,17 +17,17 @@
 				<form id="order_search_form" class="form form-inline" method="post" action="{{url('/search/order')}}">
 					@csrf
 					<div class="form-group">
-						<select name="ship_id" class="form-control"  id="ship_name">
+						<select name="ship_id" class="form-control" id="ship_name">
 							<option value="" selected="">--Select Ship--</option>
 							@if(!empty($vessels))
 							@foreach($vessels as $vessel)
-							<option value="{{$vessel->id}}" {{(!empty($ship_id) && $vessel->id == $ship_id) ?'selected':''}} >{{$vessel->name}}</option>
+							<option value="{{$vessel->id}}" {{(!empty($ship_id) && $vessel->id == $ship_id) ?'selected':''}}>{{$vessel->name}}</option>
 							@endforeach
 							@endif
 						</select>
 					</div>
 					<div class="form-group">
-						<select name="cat_id" class="form-control"  id="cate_name">
+						<select name="cat_id" class="form-control" id="cate_name">
 							<option value="" selected="">--Select Category--</option>
 							@if(!empty($categories))
 							@foreach($categories as $cat)
@@ -37,7 +37,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<select name="item_id" class="form-control"  id="item_name">
+						<select name="item_id" class="form-control" id="item_name">
 							<option class="item_opt_default" value="" selected="">--Select Item--</option>
 						</select>
 					</div>
@@ -55,16 +55,16 @@
 			</div>
 			@endif
 
-			<div class="right-buttons">	
-				@if(auth()->user()->role->role=='operator' || auth()->user()->role->role=='chief-officer')	
-				
+			<div class="right-buttons">
+				@if(auth()->user()->role->role=='operator' || auth()->user()->role->role=='chief-officer')
+
 				<a href="{{url('/create/order')}}" class="btn btn-primary">
 					<i class="fas fa-plus-square"></i> Add New Requisition
 				</a>
 
 				@endif
 				<button class="btn btn-info btn-bvprint" onClick="order_list();">
-					<i class="fa fa-print"></i>  Print
+					<i class="fa fa-print"></i> Print
 				</button>
 			</div>
 
@@ -72,7 +72,7 @@
 		<!-- card-hader -->
 		<!-- card-body -->
 		<div class="card-body">
-			<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+			<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 				<thead>
 					<th>#</th>
 					<th>Req. No</th>
@@ -133,8 +133,8 @@
 				<div class="modal-body">
 					<div class="row justify-content-center form-group">
 						<div class="col-md-11 alert alert-danger alert-dismissible fade show form_error" style="display:none" role="alert">
-							<strong>Error Submission!!</strong> Please correct following info and resubmit. 
-							<label>    </label>
+							<strong>Error Submission!!</strong> Please correct following info and resubmit.
+							<label> </label>
 							<button type="button" class="close close_error_alert">
 								<span aria-hidden="true">&times;</span>
 							</button>

@@ -200,8 +200,8 @@
 
                     </div>
                     <div class="d-flex justify content-center header_middle_area">
-                        <img src="{{asset('images/logo_2.jpg')}}" class="mt-1" style="width: 54px; height:44px" alt="">
-                        <p class="mt-3 ml-2 font-weight-bold" style="color: #fff">{{ __('messages.ird_header') }}</p>
+                        <img src="{{asset('images/logo_2.jpg')}}" class="mt-1 header-img" style="width: 54px; height:44px" alt="">
+                        <p class="mt-3 ml-2 font-weight-bold header-text" style="color: #fff">{{ __('messages.ird_header') }}</p>
                     </div>
 
                     <div class="user-area dropdown float-right">

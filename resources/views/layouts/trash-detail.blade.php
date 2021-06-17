@@ -1,26 +1,26 @@
 @extends('layouts.admin-master')
 @section('main-content')
-<div class="container-fluid">	
+<div class="container-fluid">
 
 	<div class="col-xs-12">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
 				<a class="nav-link active" id="v-survey-tab" data-toggle="tab" href="#v-survey" role="tab" aria-controls="v-survey" aria-selected="false">Survey</a>
-			</li>   
-			<li class="nav-item">			
-				<a class="nav-link" id="certificate-tab" data-toggle="tab" href="#v-certificate" role="tab" aria-controls="v-certificate" aria-selected="false">Certifciate</a>			
 			</li>
-			<li class="nav-item">			
-				<a class="nav-link" id="vessel-tab" data-toggle="tab" href="#v-vessel" role="tab" aria-controls="v-vessel" aria-selected="false">Vessel</a>			
+			<li class="nav-item">
+				<a class="nav-link" id="certificate-tab" data-toggle="tab" href="#v-certificate" role="tab" aria-controls="v-certificate" aria-selected="false">Certifciate</a>
 			</li>
-			<li class="nav-item">			
-				<a class="nav-link" id="categories-tab" data-toggle="tab" href="#v-categories" role="tab" aria-controls="v-categories" aria-selected="false">Categories</a>			
+			<li class="nav-item">
+				<a class="nav-link" id="vessel-tab" data-toggle="tab" href="#v-vessel" role="tab" aria-controls="v-vessel" aria-selected="false">Vessel</a>
 			</li>
-			<li class="nav-item">			
-				<a class="nav-link" id="items-tab" data-toggle="tab" href="#v-items" role="tab" aria-controls="v-items" aria-selected="false">Items</a>			
+			<li class="nav-item">
+				<a class="nav-link" id="categories-tab" data-toggle="tab" href="#v-categories" role="tab" aria-controls="v-categories" aria-selected="false">Categories</a>
 			</li>
-			<li class="nav-item">			
-				<a class="nav-link" id="requisitions-tab" data-toggle="tab" href="#v-requisitions" role="tab" aria-controls="v-requisitions" aria-selected="false">Requisitions</a>			
+			<li class="nav-item">
+				<a class="nav-link" id="items-tab" data-toggle="tab" href="#v-items" role="tab" aria-controls="v-items" aria-selected="false">Items</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="requisitions-tab" data-toggle="tab" href="#v-requisitions" role="tab" aria-controls="v-requisitions" aria-selected="false">Requisitions</a>
 			</li>
 		</ul>
 
@@ -30,8 +30,8 @@
 					<div class="card-header">
 						Survey Trash
 					</div>
-					<div class="card-body">							
-						<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+					<div class="card-body">
+						<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 							<thead>
 								<th>#</th>
 								<th>Name</th>
@@ -54,13 +54,13 @@
 									<td>{{!empty($survey->vessel->name)?$survey->vessel->name:''}}</td>
 									<td class="action">
 										<button class="btn btn-info restore" data-id="{{$survey->id}}" data-type="survey"><i class="fas fa-undo"></i></button>
-										<button class="btn btn-danger permanent_delete" data-id="{{$survey->id}}"  data-type="survey"><i class="fas fa-trash"></i></button>
+										<button class="btn btn-danger permanent_delete" data-id="{{$survey->id}}" data-type="survey"><i class="fas fa-trash"></i></button>
 									</td>
 								</tr>
 								@endforeach
 								@endif
 							</tbody>
-						</table>    				
+						</table>
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 						Certifciate Trash
 					</div>
 					<div class="card-body">
-						<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+						<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 							<thead>
 								<th>#</th>
 								<th>Name</th>
@@ -92,13 +92,13 @@
 									<td>{{!empty($vessel_certificate->exp_date)?$vessel_certificate->exp_date:''}}</td>
 									<td>{{!empty($vessel_certificate->vessel->name)?$vessel_certificate->vessel->name:''}}</td>
 									<td class="tdfile">
-										<button type="button" class="cert_file btn btn-info" data-toggle="modal" data-target="#fileShowModal" data-file="{{url('/')}}/{{!empty($vessel_certificate->cert_copy)?$vessel_certificate->cert_copy:''}}" data-name="{{!empty($vessel_certificate->name)?$vessel_certificate->name:''}}"> 
+										<button type="button" class="cert_file btn btn-info" data-toggle="modal" data-target="#fileShowModal" data-file="{{url('/')}}/{{!empty($vessel_certificate->cert_copy)?$vessel_certificate->cert_copy:''}}" data-name="{{!empty($vessel_certificate->name)?$vessel_certificate->name:''}}">
 											<i class="fas fa-eye"></i> Show File
 										</button>
 									</td>
 									<td class="action">
 										<button class="btn btn-info restore" data-id="{{$vessel_certificate->id}}" data-type="certificate"><i class="fas fa-undo"></i></button>
-										<button class="btn btn-danger permanent_delete" data-id="{{$vessel_certificate->id}}"  data-type="certificate"><i class="fas fa-trash"></i></button>
+										<button class="btn btn-danger permanent_delete" data-id="{{$vessel_certificate->id}}" data-type="certificate"><i class="fas fa-trash"></i></button>
 									</td>
 								</tr>
 								@endforeach
@@ -116,7 +116,7 @@
 					</div>
 					<div class="card-body">
 
-						<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+						<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 							<thead>
 								<th>#</th>
 								<th>Name</th>
@@ -157,7 +157,7 @@
 									</td>
 									<td class="action">
 										<button class="btn btn-info restore" data-id="{{$vessel->id}}" data-type="vessel"><i class="fas fa-undo"></i></button>
-										<button class="btn btn-danger permanent_delete" data-id="{{$vessel->id}}"  data-type="vessel"><i class="fas fa-trash"></i></button>
+										<button class="btn btn-danger permanent_delete" data-id="{{$vessel->id}}" data-type="vessel"><i class="fas fa-trash"></i></button>
 									</td>
 								</tr>
 								@endforeach
@@ -173,9 +173,9 @@
 						Categories Trash
 					</div>
 					<div class="card-body">
-						<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+						<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 							<thead>
-								<tr>					
+								<tr>
 									<th>#</th>
 									<th>Name</th>
 									<th>Symbol</th>
@@ -195,7 +195,7 @@
 									<td>{{!empty($category->updated_by)?$category->updated_by:''}}</td>
 									<td class="action">
 										<button class="btn btn-info restore" data-id="{{$category->id}}" data-type="category"><i class="fas fa-undo"></i></button>
-										<button class="btn btn-danger permanent_delete" data-id="{{$category->id}}"  data-type="category"><i class="fas fa-trash"></i></button>
+										<button class="btn btn-danger permanent_delete" data-id="{{$category->id}}" data-type="category"><i class="fas fa-trash"></i></button>
 									</td>
 								</tr>
 								@endforeach
@@ -212,7 +212,7 @@
 						Items Trash
 					</div>
 					<div class="card-body">
-						<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+						<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 							<thead>
 								<th>#</th>
 								<th>Imapa Code</th>
@@ -236,7 +236,7 @@
 									<td>{{!empty($item->updated_by)?$item->updated_by:''}}</td>
 									<td class="action">
 										<button class="btn btn-info restore" data-id="{{$item->id}}" data-type="item"><i class="fas fa-undo"></i></button>
-										<button class="btn btn-danger permanent_delete" data-id="{{$item->id}}"  data-type="item"><i class="fas fa-trash"></i></button>
+										<button class="btn btn-danger permanent_delete" data-id="{{$item->id}}" data-type="item"><i class="fas fa-trash"></i></button>
 									</td>
 								</tr>
 								@endforeach
@@ -253,7 +253,7 @@
 						Requisitions Trash
 					</div>
 					<div class="card-body">
-						<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+						<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 							<thead>
 								<th>#</th>
 								<th>Req. No</th>
@@ -287,8 +287,8 @@
 									<td>{{!empty($order->updated_by)?$order->updated_by:''}}</td>
 									<td class="action">
 										<button class="btn btn-info restore" data-id="{{$order->id}}" data-type="order"><i class="fas fa-undo"></i></button>
-										<button class="btn btn-danger permanent_delete" data-id="{{$order->id}}"  data-type="order"><i class="fas fa-trash"></i></button>
-									</td> 
+										<button class="btn btn-danger permanent_delete" data-id="{{$order->id}}" data-type="order"><i class="fas fa-trash"></i></button>
+									</td>
 								</tr>
 								@endforeach
 								@endif
@@ -305,5 +305,3 @@
 
 </div>
 @endsection
-
-

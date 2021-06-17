@@ -1,20 +1,20 @@
 @extends('layouts.admin-master')
-@section('main-content') 
+@section('main-content')
 <style>
-.item_name_wrapper {
-	position: relative;
-}
+	.item_name_wrapper {
+		position: relative;
+	}
 
-.item_name_wrapper img.field-loader {
-position: absolute;
-    width: 25px;
-    height: auto;
-    right: 3px;
-    display: none; 
-    top: 50%;
-    margin-top: -12.5px;
-    padding: 0;
-}
+	.item_name_wrapper img.field-loader {
+		position: absolute;
+		width: 25px;
+		height: auto;
+		right: 3px;
+		display: none;
+		top: 50%;
+		margin-top: -12.5px;
+		padding: 0;
+	}
 </style>
 <div class="col-lg-6 col-xl-12">
 	<div class="card">
@@ -22,23 +22,23 @@ position: absolute;
 			@if(
 			auth()->user()->role=='chief-officer'||
 			auth()->user()->role=='second-engineer')
-						<strong class="pptitle">
+			<strong class="pptitle">
 				Created Requisition List of <span style="color:red;display: inline-block;padding-left: 5px;"> {{auth()->user()->role->vessel->name}} </span>
 			</strong>
 			@endif
 
-		
 
-			<div class="right-buttons">	
-				@if(auth()->user()->role->role=='second-engineer' || auth()->user()->role->role=='chief-officer')	
-				
+
+			<div class="right-buttons">
+				@if(auth()->user()->role->role=='second-engineer' || auth()->user()->role->role=='chief-officer')
+
 				<a href="{{url('/create/order')}}" class="btn btn-primary">
 					<i class="fas fa-plus-square"></i> Add New Requisition
 				</a>
 
 				@endif
 				<button class="btn btn-info btn-bvprint" onClick="order_list();">
-					<i class="fa fa-print"></i>  Print
+					<i class="fa fa-print"></i> Print
 				</button>
 			</div>
 
@@ -46,7 +46,7 @@ position: absolute;
 		<!-- card-hader -->
 		<!-- card-body -->
 		<div class="card-body">
-			<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+			<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 				<thead>
 					<th>#</th>
 					<th>Req. No</th>
@@ -107,8 +107,8 @@ position: absolute;
 				<div class="modal-body">
 					<div class="row justify-content-center form-group">
 						<div class="col-md-11 alert alert-danger alert-dismissible fade show form_error" style="display:none" role="alert">
-							<strong>Error Submission!!</strong> Please correct following info and resubmit. 
-							<label>    </label>
+							<strong>Error Submission!!</strong> Please correct following info and resubmit.
+							<label> </label>
 							<button type="button" class="close close_error_alert">
 								<span aria-hidden="true">&times;</span>
 							</button>

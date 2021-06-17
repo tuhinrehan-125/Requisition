@@ -74,7 +74,7 @@
                                         <input type="hidden" name="edit_order_id" id="edit_order_id" value="{{$orderId}}">
                                         <div class="form-group row">
                                             <div class="col-md-12 item-list-shown">
-                                                <table id="example1" class="table table-striped table-bordered orderedItemTable" style="width:100%">
+                                                <table id="example1" class="table table-striped table-bordered orderedItemTable table-responsive" style="width:100%">
                                                     <thead>
                                                         <tr>
                                                             <th>SL. No.</th>
@@ -130,7 +130,7 @@
 
                     <div class="form-group row">
                         <div class="col-md-12 item-list-shown">
-                            <table id="example1" class="table table-striped table-bordered" style="width:100%">
+                            <table id="example1" class="table table-striped table-bordered table-responsive" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>SL. No.</th>

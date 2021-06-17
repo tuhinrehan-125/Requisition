@@ -1,26 +1,26 @@
 @extends('layouts.admin-master')
-@section('main-content') 
+@section('main-content')
 <style>
-.item_name_wrapper {
-	position: relative;
-}
+	.item_name_wrapper {
+		position: relative;
+	}
 
-.item_name_wrapper img.field-loader {
-position: absolute;
-    width: 25px;
-    height: auto;
-    right: 3px;
-    display: none; 
-    top: 50%;
-    margin-top: -12.5px;
-    padding: 0;
-}
+	.item_name_wrapper img.field-loader {
+		position: absolute;
+		width: 25px;
+		height: auto;
+		right: 3px;
+		display: none;
+		top: 50%;
+		margin-top: -12.5px;
+		padding: 0;
+	}
 </style>
 <div class="col-lg-6 col-xl-12">
 	<div class="card">
 		<div class="card-header pv-card-hader">
 			<strong class="pptitle">Requisition Lists of
-				&nbsp; 
+				&nbsp;
 				<span style="color:red;">{{!empty(auth()->user()->role->vessel->name)?auth()->user()->role->vessel->name:''}}</span>
 			</strong>
 
@@ -28,17 +28,17 @@ position: absolute;
 				<form id="order_search_form" class="form form-inline" method="post" action="{{url('/search/order')}}">
 					@csrf
 					<div class="form-group">
-						<select name="ship_id" class="form-control"  id="ship_name">
+						<select name="ship_id" class="form-control" id="ship_name">
 							<option value="" selected="">--Select Ship--</option>
 							@if(!empty($vessels))
 							@foreach($vessels as $vessel)
-							<option value="{{$vessel->id}}" {{$vessel->id == $ship_id ?'selected':''}} >{{$vessel->name}}</option>
+							<option value="{{$vessel->id}}" {{$vessel->id == $ship_id ?'selected':''}}>{{$vessel->name}}</option>
 							@endforeach
 							@endif
 						</select>
 					</div>
 					<div class="form-group">
-						<select name="cat_id" class="form-control"  id="cate_name">
+						<select name="cat_id" class="form-control" id="cate_name">
 							<option value="" selected="">--Select Category--</option>
 							@if(!empty($categories))
 							@foreach($categories as $cat)
@@ -48,7 +48,7 @@ position: absolute;
 						</select>
 					</div>
 					<div class="form-group item_name_wrapper">
-						<select name="item_id" class="form-control"  id="item_name">
+						<select name="item_id" class="form-control" id="item_name">
 							<option class="item_opt_default" value="" selected="">--Select Item--</option>
 							@if(!empty($category->items))
 							@foreach($category->items as $item)
@@ -70,18 +70,18 @@ position: absolute;
 				</form>
 			</div>
 
-			<div class="right-buttons">	
+			<div class="right-buttons">
 				<button class="btn btn-info btn-bvprint" onClick="order_list();">
-					<i class="fa fa-print"></i>  Print
+					<i class="fa fa-print"></i> Print
 				</button>
 			</div>
 
-			
+
 		</div>
 		<!-- card-hader -->
 		<!-- card-body -->
 		<div class="card-body">
-			<table id="example" class="table table-bordered dt-responsive" style="width: 100%;">
+			<table id="example" class="table table-bordered dt-responsive table-responsive" style="width: 100%;">
 				<thead>
 					<th>#</th>
 					<th>Item</th>
@@ -143,8 +143,8 @@ position: absolute;
 				<div class="modal-body">
 					<div class="row justify-content-center form-group">
 						<div class="col-md-11 alert alert-danger alert-dismissible fade show form_error" style="display:none" role="alert">
-							<strong>Error Submission!!</strong> Please correct following info and resubmit. 
-							<label>    </label>
+							<strong>Error Submission!!</strong> Please correct following info and resubmit.
+							<label> </label>
 							<button type="button" class="close close_error_alert">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -203,7 +203,7 @@ position: absolute;
 </div>
 
 <!-- order-print-header -->
-<div id="order-print-header" class="print-header" >
+<div id="order-print-header" class="print-header">
 	<div class="title-wrap">
 		<h2 class="line2">Bangladesh Shipping Corporation</h2>
 		<h2 class="line3">Ship <span></span> Repair <span></span> Department</h2>
