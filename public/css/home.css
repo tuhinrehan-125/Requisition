@@ -152,6 +152,9 @@
     #left-panel .navbar{
         margin-top: 55px;
     }
+    .open-menu {
+        display:block;
+    }
 
     .right-panel header.header .top-left {
         margin-left: -6px;
@@ -180,4 +183,16 @@
     .stat-content .text-left{
         margin-left: -28px;
     }
-  }
+}
+
+@media only screen
+    and (max-device-width: 1238px){
+        .container {
+            max-width: 100%;
+        }
+        .ird-h{
+            width: 132%;
+            margin-left: -20px;
+        }
+        
+}

@@ -16,7 +16,7 @@ $order_approval=$order->orderApproval;
 			<div class="row mb-3 justify-content-center">
 				<div class="col-3 irdheader">
 					<img src="{{url('/images/bd govt.png')}}" width="50px" height="50px">
-					<p>অভ্যন্তরীণ সম্পদ বিভাগ</p>
+					<p class="ird-h">অভ্যন্তরীণ সম্পদ বিভাগ</p>
 					<p>অর্থ মন্ত্রণালয়</p>
 				</div>
 			</div>
